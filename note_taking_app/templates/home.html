@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <h1 style="color: rgb(251, 246, 246);">Note App</h1>
+    <style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    body {
+        background-color: rgb(235, 167, 229);
+    }
+    h1 {
+        letter-spacing: 1.5vw;
+        font-family: 'system-ui';
+        text-transform: uppercase;
+        text-align: center
+    }
+    main {
+        display: flex;
+        justify-content: center;
+    }
+    .form_class {
+        width: 500px;
+        padding: 40px;
+        border-radius: 8px;
+        background-color: white;
+        font-family: 'system-ui';
+        box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    }
+    .form_div {
+        letter-spacing: 3px;
+        font-size: 1rem;
+    }
+    .field_class {
+        width: 100%;
+        border-radius: 6px;
+        border-style: solid;
+        border-width: 1px;
+        padding: 5px 0px;
+        text-indent: 6px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-family: 'system-ui';
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+    .submit_class {
+        border-style: none;
+        border-radius: 5px;
+        background-color: #FFE6D4;
+        padding: 8px 20px;
+        font-family: 'system-ui';
+        text-transform: uppercase;
+        letter-spacing: .8px;
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <form action="{{ url_for('index')}}"  class="form_class"  method="post">
+            
+            <div class="form_div">
+                <input class="field_class" type="text" name="note" placeholder="Enter a note">
+                <br>
+                <button class="submit_class" >Add Note</button>
+                <button class="submit_class" name="clear" value="True">Clear</button><br>
+         
+            <ul>
+                {% for note in notes%}
+                    <li>{{ note }}</li>
+                {% endfor %}
+            </ul>
+        
+        </div>
+        </form>
+    </main>
+</body>

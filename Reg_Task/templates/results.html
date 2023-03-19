@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <h1>Regex Clone</h1>
+    <style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    body {
+        background-color: rgb(47, 19, 202);
+    }
+    h1 {
+        letter-spacing: 1.5vw;
+        font-family: 'system-ui';
+        text-transform: uppercase;
+        text-align: center;
+    }
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 75vh;
+        width: 100%;
+        background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Mountains-1412683.svg/1280px-Mountains-1412683.svg.png) no-repeat center center;
+        background-size: cover;
+    }
+    .form_class {
+        width: 500px;
+        padding: 40px;
+        border-radius: 8px;
+        background-color: white;
+        font-family: 'system-ui';
+        box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    }
+    .form_div {
+    }
+    .form_div > label {
+        letter-spacing: 3px;
+        font-size: 1rem;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <form action="{{ url_for('result')}}" class="form_class"  method="post">
+            <div class="form_div">
+                {% if matchedstrings %}
+                <ul>
+                    {% for i in matchedstrings %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+
+                <p>Count of matched strings = {{ length }}</p>
+                
+                </ul>
+
+                {% else %}
+                <p>No matching strings Found</p>
+                {% endif %}
+            </div>
+        </form>
+    </main>
+</body>
