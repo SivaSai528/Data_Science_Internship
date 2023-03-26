@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+
+{% block content %}
+<main>
+    <form class="form_class" method="post">
+        <div class="form_div">
+            <input class="field_class" type="text" name="email" placeholder="Email">
+            <input class="field_class" type="password" name="password" placeholder="Password">
+            <button class="submit_class">Login</button>
+        </div>
+    </form>
+</main>
+
+{% endblock %}

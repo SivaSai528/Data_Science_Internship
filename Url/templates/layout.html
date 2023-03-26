@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <style>
+        body {
+            background-color: #cccccc;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image:url("img1.jpg");
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #cccccc;
+            color: black;
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        h1 {
+            font-family: 'system-ui';
+            text-align: center;
+        }
+
+        .form_class {
+            width: 500px;
+            padding: 40px;
+            border-radius: 8px;
+            background-color: white;
+            font-family: 'system-ui';
+            box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.3);
+        }
+
+        .form_div {}
+
+        .form_div>label {
+            letter-spacing: 3px;
+            font-size: 1rem;
+        }
+
+        .field_class {
+            width: 100%;
+            border-radius: 6px;
+            border-style: solid;
+            border-width: 1px;
+            padding: 5px 0px;
+            text-indent: 6px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-family: 'system-ui';
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .submit_class {
+            border-style: none;
+            border-radius: 5px;
+            background-color: #FFE6D4;
+            padding: 8px 20px;
+            font-family: 'system-ui';
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+            box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <nav>
+            <a href="{{ url_for("index") }}">Home</a>
+            <a href="{{ url_for("history") }}">Display</a>
+            {% if current_user.is_authenticated %}
+            <a href="{{ url_for("home") }}">Url</a>
+            <a href="{{ url_for("logout") }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for("register") }}">Register</a>
+            <a href="{{ url_for("login") }}">Login</a>
+            {% endif %}
+        </nav>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+URL Shortener
+{% endblock %}
+
+
+{% block content %}
+<main >
+  <form class="form_class" method="POST">
+    <div class="form_div">
+      <input class="field_class" type="text" name="url" placeholder="Enter URL">
+      <button class="submit_class" type="submit">Shorten URL</button>
+    </div>
+  </form>
+</main>
+{% endblock %}

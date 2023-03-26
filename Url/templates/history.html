@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+URL Shortener - History
+{% endblock %}
+
+
+{% block content %}
+<main>
+  <div class="form_div">
+    <table>
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Shortened URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for url in urls %}
+        <tr>
+          <td><a href="{{ url.original_url }}">{{ url.original_url }}</a></td>
+          <td><a href="{{ url.full_url }}">{{ url.full_url }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+{% endblock %}
